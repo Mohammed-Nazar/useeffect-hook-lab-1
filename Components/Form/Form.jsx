@@ -1,10 +1,10 @@
+"use client"
 import { useState } from "react";
 
 
-export default function Form({ setNumberOfDogs }) {
+export default function Form({ setNumberOfDogs, inputText, getDogs }) {
   // How can we manage the number of dogs?
 
-  const [inputText, setInputText] = useState("");
   return (
     <form>
       <h3>Number of cute dogs is infinite!</h3>
@@ -13,7 +13,7 @@ export default function Form({ setNumberOfDogs }) {
         <input
           value={inputText}
           onChange={(e) => {
-            setInputText(e.target.value);
+            setNumberOfDogs(e.target.value);
           }}
           type="text"
           className="form-control"
@@ -23,7 +23,7 @@ export default function Form({ setNumberOfDogs }) {
         <button
           onClick={(e) => {
             e.preventDefault();
-            // When we click on the WOOF! button, what happens?
+            getDogs();
           }}
           type="submit"
           className="btn btn-primary"
